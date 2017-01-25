@@ -1,4 +1,4 @@
-package com.example.mvnetworkinglibrary;
+package com.mindvalley.mvnetworkinglibrary;
 
 import org.junit.Test;
 

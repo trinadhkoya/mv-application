@@ -1,4 +1,4 @@
-package com.example.mvnetworkinglibrary;
+package com.mindvalley.mvnetworkinglibrary;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
