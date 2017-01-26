@@ -1,4 +1,4 @@
-package com.android.valley;
+package com.android.valley.utils;
 
 /**
  * Created by trinadhkoya on 26/01/17.

@@ -1,8 +1,11 @@
-package com.android.valley;
+package com.android.valley.task;
 
 import android.net.Uri;
 import android.os.AsyncTask;
 
+import com.android.valley.utils.CacheManagerInterface;
+import com.android.valley.utils.Constants;
+import com.android.valley.MindValleyHTTP;
 import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
 import com.android.valley.model.Response;
@@ -16,13 +19,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-import static com.android.valley.Constants.CONN_READ_TIMEOUT;
-import static com.android.valley.Constants.CONN_TIMEOUT;
-import static com.android.valley.MindValleyHTTP.Method.DELETE;
-import static com.android.valley.MindValleyHTTP.Method.GET;
-import static com.android.valley.MindValleyHTTP.Method.POST;
-import static com.android.valley.MindValleyHTTP.Method.PUT;
-
 /**
  * Created by trinadhkoya on 26/01/17.
  */
@@ -30,6 +26,8 @@ import static com.android.valley.MindValleyHTTP.Method.PUT;
 public abstract class BaseTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
 
+    private static final int CONN_READ_TIMEOUT = 10000;
+    private static final int CONN_TIMEOUT = 15000;
     CacheManagerInterface<Result> mCacheManager;
     HttpURLConnection connection;
 

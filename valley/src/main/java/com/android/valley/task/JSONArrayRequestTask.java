@@ -1,14 +1,12 @@
-package com.android.valley;
+package com.android.valley.task;
 
-import android.graphics.Bitmap;
-
+import com.android.valley.MindValleyHTTP;
 import com.android.valley.listener.HttpListener;
 import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
 import com.android.valley.model.Response;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,18 +14,18 @@ import java.util.ArrayList;
 /**
  * Created by trinadhkoya on 26/01/17.
  */
-public class JSONObjectRequestTask extends BaseTask<String, Void, JSONObject> {
+public class JSONArrayRequestTask extends BaseTask<String, Void, JSONArray> {
 
 
     private MindValleyHTTP.Method mMethod;
     private String mUrl;
     private ArrayList<RequestParameter> mRequestParameters;
     private ArrayList<HeaderParameter> mHeaderParameters;
-    private HttpListener<JSONObject> mliListener;
+    private HttpListener<JSONArray> mliListener;
 
     private boolean error = false;
 
-    JSONObjectRequestTask(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters, HttpListener<JSONObject> listener) {
+    public JSONArrayRequestTask(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters, HttpListener<JSONArray> listener) {
         this.mMethod = method;
         this.mUrl = url;
         this.mRequestParameters = requestParameters;
@@ -42,12 +40,12 @@ public class JSONObjectRequestTask extends BaseTask<String, Void, JSONObject> {
     }
 
     @Override
-    protected JSONObject doInBackground(String... params) {
+    protected JSONArray doInBackground(String... params) {
 
         Response response = null;
         try {
             response = executeRequest(mUrl, mMethod, mRequestParameters, mHeaderParameters);
-            JSONObject data = response.getStringFormat();
+            JSONArray data = response.getStringFormat();
             if (this.mCacheManager != null) {
                 if (this.mCacheManager.getDataFromCache(mUrl) == null) {
                     this.mCacheManager.addDataToCache(mUrl, data);
@@ -65,10 +63,10 @@ public class JSONObjectRequestTask extends BaseTask<String, Void, JSONObject> {
     }
 
     @Override
-    protected void onPostExecute(JSONObject jsonObject) {
-        super.onPostExecute(jsonObject);
+    protected void onPostExecute(JSONArray jsonArray) {
+        super.onPostExecute(jsonArray);
         if (!error) {
-            this.mliListener.onResponse(jsonObject);
+            this.mliListener.onResponse(jsonArray);
         } else {
             this.mliListener.onError();
         }

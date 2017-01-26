@@ -1,10 +1,12 @@
-package com.android.valley;
+package com.android.valley.type;
 
-import android.graphics.Bitmap;
-
+import com.android.valley.MindValleyHTTP;
 import com.android.valley.listener.HttpListener;
 import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
+import com.android.valley.task.JSONObjectRequestTask;
+import com.android.valley.utils.CacheManager;
+import com.android.valley.utils.CacheManagerInterface;
 
 import org.json.JSONObject;
 

@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
+import com.android.valley.type.BitMapType;
+import com.android.valley.type.JSONArrayType;
+import com.android.valley.type.JSONObjectType;
 
 import java.util.ArrayList;
 

@@ -1,28 +1,33 @@
-package com.android.valley;
+package com.android.valley.type;
 
-import android.graphics.Bitmap;
-
+import com.android.valley.MindValleyHTTP;
 import com.android.valley.listener.HttpListener;
 import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
+import com.android.valley.task.JSONArrayRequestTask;
+import com.android.valley.utils.CacheManager;
+import com.android.valley.utils.CacheManagerInterface;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
+
 
 /**
  * Created by trinadhkoya on 26/01/17.
  */
-public class BitMapType extends Type<Bitmap> {
+public class JSONArrayType extends Type<JSONArray> {
 
     private String mUrl;
-    private HttpListener<Bitmap> mliListener;
+    private HttpListener<JSONArray> mliListener;
     private MindValleyHTTP.Method mMethod;
     private ArrayList<RequestParameter> mRequestParameters;
     private ArrayList<HeaderParameter> mHeaderParameters;
-    private BitMapRequestTask mTask;
-    private CacheManagerInterface<Bitmap> mCacheManager;
+    private JSONArrayRequestTask mTask;
+    private CacheManagerInterface<JSONArray> mCacheManager;
 
 
-    public BitMapType(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters) {
+    public JSONArrayType(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters) {
         this.mUrl = url;
         this.mMethod = method;
         this.mRequestParameters = requestParameters;
@@ -30,24 +35,24 @@ public class BitMapType extends Type<Bitmap> {
     }
 
     @Override
-    public BitMapType setCacheManager(CacheManager<Bitmap> cacheManager) {
+    public JSONArrayType setCacheManager(CacheManager<JSONArray> cacheManager) {
         this.mCacheManager = cacheManager;
         return this;
     }
 
     @Override
-    public BitMapType setCallback(HttpListener<Bitmap> listener) {
+    public JSONArrayType setCallback(HttpListener<JSONArray> listener) {
         this.mliListener = listener;
         mliListener.onRequest();
-        Bitmap bitmap;
+        JSONArray data;
         if (mCacheManager != null) {
-            bitmap = mCacheManager.getDataFromCache(mUrl);
-            if (bitmap != null) {
-                mliListener.onResponse(bitmap);
+            data = mCacheManager.getDataFromCache(mUrl);
+            if (data != null) {
+                mliListener.onResponse(data);
                 return this;
             }
         }
-        mTask = new BitMapRequestTask(mMethod, mUrl, mRequestParameters, mHeaderParameters, mliListener);
+        mTask = new JSONArrayRequestTask(mMethod, mUrl, mRequestParameters, mHeaderParameters, mliListener);
         mTask.setmCacheManager(mCacheManager);
         mTask.execute();
         return this;

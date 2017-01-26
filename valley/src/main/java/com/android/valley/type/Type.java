@@ -1,6 +1,7 @@
-package com.android.valley;
+package com.android.valley.type;
 
 import com.android.valley.listener.HttpListener;
+import com.android.valley.utils.CacheManager;
 
 /**
  * Created by trinadhkoya on 26/01/17.

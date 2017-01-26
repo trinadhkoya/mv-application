@@ -1,4 +1,4 @@
-package com.android.valley;
+package com.android.valley.utils;
 
 import android.graphics.Bitmap;
 import android.os.SystemClock;
