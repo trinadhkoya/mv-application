@@ -1,1 +1,1 @@
-include ':app', ':mvHttpClient'
+include ':app', ':valley'

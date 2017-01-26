@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MindValleyApplication.iml" filepath="$PROJECT_DIR$/MindValleyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mvHttpClient/MvHttpClient.iml" filepath="$PROJECT_DIR$/mvHttpClient/MvHttpClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/valley/valley.iml" filepath="$PROJECT_DIR$/valley/valley.iml" />
     </modules>
   </component>
 </project>
