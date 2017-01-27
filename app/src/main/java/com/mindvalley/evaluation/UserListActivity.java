@@ -1,10 +1,12 @@
 package com.mindvalley.evaluation;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.valley.MindValleyHTTP;
@@ -34,6 +36,7 @@ public class UserListActivity extends AppCompatActivity {
     public boolean LOADING_PAGE = true;
     public int visibleItemsCount, pastVisibleItems, totalItemsCount;
 
+
     Handler handler = new Handler();
 
 
@@ -41,11 +44,16 @@ public class UserListActivity extends AppCompatActivity {
 
     CacheManager<JSONArray> jsonArrayCacheManager;
 
+    FloatingActionButton clearAllFloatingActionButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+
+
+        clearAllFloatingActionButton=(FloatingActionButton)findViewById(R.id.clear_cache);
         //10 MB
         jsonArrayCacheManager = new CacheManager<>(10 * 1024 * 1024);
 
@@ -86,9 +94,19 @@ public class UserListActivity extends AppCompatActivity {
             }
         });
 
+        clearAllFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userData.clear();
+                userAdapter.notifyDataSetChanged();
+            }
+        });
+
         populateUserInfo();
 
     }
+
+
 
     private void populateUserInfo() {
         MindValleyHTTP.from(this)

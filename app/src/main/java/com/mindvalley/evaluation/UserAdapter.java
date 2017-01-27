@@ -33,6 +33,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
 
     }
 
+
     @Override
     public UserAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_layout, parent, false);
@@ -79,6 +80,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
 
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView userProfieImageView;
@@ -92,4 +94,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> im
         }
 
     }
+
+    public void wipe() {
+        this.users.clear();
+        notifyDataSetChanged();
+    }
+
 }
