@@ -86,6 +86,8 @@ public class UserListActivity extends AppCompatActivity {
             }
         });
 
+        populateUserInfo();
+
     }
 
     private void populateUserInfo() {
@@ -127,7 +129,7 @@ public class UserListActivity extends AppCompatActivity {
 
             @Override
             public void onError() {
-                LOADING_PAGE=false;
+                LOADING_PAGE = false;
             }
 
             @Override
