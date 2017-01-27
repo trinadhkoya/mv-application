@@ -34,7 +34,6 @@ public class MindValleyHTTP {
     private ArrayList<HeaderParameter> headerParameters = new ArrayList<>();
 
     /**
-     *
      * @param context
      */
     public MindValleyHTTP(Context context) {
@@ -42,7 +41,7 @@ public class MindValleyHTTP {
     }
 
 
-    public MindValleyHTTP from(Context context) {
+    public static MindValleyHTTP from(Context context) {
         return getInstance(context);
     }
 
@@ -59,9 +58,8 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @param method
-     * @param url to serve
+     * @param url    to serve
      * @return MindvalleyInstance
      */
     public MindValleyHTTP serve(Method method, String url) {
@@ -71,7 +69,6 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @return jsonarray typed data
      */
     public JSONArrayType asJSONArray() {
@@ -79,7 +76,6 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @return jsonobject data type
      */
     public JSONObjectType asJSONObject() {
@@ -87,7 +83,6 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @return bitmap data type
      */
     public BitMapType asBitMap() {
@@ -95,7 +90,6 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @param key
      * @param value
      * @return instance of MindvalleyHttp
@@ -109,7 +103,6 @@ public class MindValleyHTTP {
     }
 
     /**
-     *
      * @param key
      * @param value
      * @return

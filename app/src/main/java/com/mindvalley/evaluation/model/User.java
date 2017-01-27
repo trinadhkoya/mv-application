@@ -9,9 +9,9 @@ public class User {
     /*
     I want to display the below data in my view
      */
-    private String name;
-    private String userName;
-    private String profileImage;
+    public String name;
+    public String userName;
+    public String profileImage;
 
 
     /*

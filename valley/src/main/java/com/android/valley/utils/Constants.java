@@ -4,6 +4,7 @@ package com.android.valley.utils;
  * Created by trinadhkoya on 26/01/17.
  */
 
+
 public class Constants {
 
     public static final int CONN_READ_TIMEOUT = 10000;

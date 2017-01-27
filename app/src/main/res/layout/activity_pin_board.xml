@@ -21,5 +21,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/floatingActionButton2" />
+        android:id="@+id/list_users_button" />
 </RelativeLayout>
