@@ -30,7 +30,9 @@ public class UserListActivity extends AppCompatActivity {
 
     RecyclerView userListRecyclerView;
     RecyclerView.LayoutManager usersLayoutManager;
-    RecyclerView.Adapter userAdapter;
+    UserAdapter userAdapter;
+
+
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     public boolean LOADING_PAGE = true;
@@ -97,8 +99,8 @@ public class UserListActivity extends AppCompatActivity {
         clearAllFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userData.clear();
-                userAdapter.notifyDataSetChanged();
+                userAdapter.wipe();
+
             }
         });
 
@@ -134,6 +136,7 @@ public class UserListActivity extends AppCompatActivity {
 
                             userData.add(user);
                             userAdapter.notifyDataSetChanged();
+
 
 
                         } catch (JSONException e) {
