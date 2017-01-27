@@ -7,6 +7,7 @@ import com.android.valley.model.RequestParameter;
 import com.android.valley.model.Response;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +46,12 @@ public class JSONArrayRequestTask extends BaseTask<String, Void, JSONArray> {
         Response response = null;
         try {
             response = executeRequest(mUrl, mMethod, mRequestParameters, mHeaderParameters);
-            JSONArray data = response.getStringFormat();
+            JSONArray data = null;
+            try {
+                data = new JSONArray(response.getStringFormat());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             if (this.mCacheManager != null) {
                 if (this.mCacheManager.getDataFromCache(mUrl) == null) {
                     this.mCacheManager.addDataToCache(mUrl, data);

@@ -26,8 +26,7 @@ import java.util.ArrayList;
 public abstract class BaseTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
 
 
-    private static final int CONN_READ_TIMEOUT = 10000;
-    private static final int CONN_TIMEOUT = 15000;
+
     CacheManagerInterface<Result> mCacheManager;
     HttpURLConnection connection;
 
@@ -43,8 +42,8 @@ public abstract class BaseTask<Params, Progress, Result> extends AsyncTask<Param
 
         URL mUrl = new URL(url);
         connection = (HttpURLConnection) mUrl.openConnection();
-        connection.setReadTimeout(CONN_READ_TIMEOUT /* milliseconds */);
-        connection.setConnectTimeout(CONN_TIMEOUT /* milliseconds */);
+        connection.setReadTimeout(Constants.CONN_READ_TIMEOUT /* milliseconds */);
+        connection.setConnectTimeout(Constants.CONN_TIMEOUT /* milliseconds */);
 
         switch (method) {
             case GET:
@@ -87,7 +86,7 @@ public abstract class BaseTask<Params, Progress, Result> extends AsyncTask<Param
 
             OutputStream os = connection.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
+                    new OutputStreamWriter(os, Constants.ENCODING));
             writer.write(query);
             writer.flush();
             writer.close();

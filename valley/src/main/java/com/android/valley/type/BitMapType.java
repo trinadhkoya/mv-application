@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by trinadhkoya on 26/01/17.
  */
-public class BitMapType extends Type<Bitmap> {
+public class BitMapType extends BaseType<Bitmap> {
 
     private String mUrl;
     private HttpListener<Bitmap> mliListener;
@@ -58,7 +58,7 @@ public class BitMapType extends Type<Bitmap> {
     }
 
     @Override
-    boolean cancel() {
+    public boolean cancel() {
         if (mTask != null) {
             mTask.cancel(true);
             if (mTask.isCancelled()) {

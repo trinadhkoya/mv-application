@@ -37,7 +37,12 @@ public class Response {
         return this;
     }
 
-    public JSONObject getStringFormat() throws IOException {
+    /**
+     * from inputstream
+     * @return string format data
+     * @throws IOException
+     */
+    public String getStringFormat() throws IOException {
 
 
         final int bufferSize = 1024;
@@ -56,6 +61,10 @@ public class Response {
     }
 
 
+    /**
+     *from inputstream
+     * @return bitmap
+     */
     public Bitmap getBitMapFormat() {
         Bitmap bitmap = BitmapFactory.decodeStream(this.responseData);
         if (responseData != null) {

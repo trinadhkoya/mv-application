@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by trinadhkoya on 26/01/17.
  */
-public class JSONObjectType extends Type<JSONObject> {
+public class JSONObjectType extends BaseType<JSONObject> {
 
     private String mUrl;
     private HttpListener<JSONObject> mliListener;
@@ -77,7 +77,7 @@ public class JSONObjectType extends Type<JSONObject> {
 
 
     @Override
-    boolean cancel() {
+    public boolean cancel() {
         if (mTask != null) {
             mTask.cancel(true);
             if (mTask.isCancelled()) {

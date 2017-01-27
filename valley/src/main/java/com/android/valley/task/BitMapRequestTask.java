@@ -25,7 +25,7 @@ public class BitMapRequestTask extends BaseTask<String, Void, Bitmap> {
 
     private boolean error = false;
 
-    BitMapRequestTask(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters, HttpListener<Bitmap> listener) {
+    public BitMapRequestTask(MindValleyHTTP.Method method, String url, ArrayList<RequestParameter> requestParameters, ArrayList<HeaderParameter> headerParameters, HttpListener<Bitmap> listener) {
         this.mMethod = method;
         this.mUrl = url;
         this.mRequestParameters = requestParameters;
@@ -72,6 +72,10 @@ public class BitMapRequestTask extends BaseTask<String, Void, Bitmap> {
         }
     }
 
+
+    /**
+     * if there is any cahe,remove it.
+     */
     @Override
     protected void onCancelled() {
         super.onCancelled();

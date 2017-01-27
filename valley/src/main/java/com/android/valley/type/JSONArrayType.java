@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by trinadhkoya on 26/01/17.
  */
-public class JSONArrayType extends Type<JSONArray> {
+public class JSONArrayType extends BaseType<JSONArray> {
 
     private String mUrl;
     private HttpListener<JSONArray> mliListener;
@@ -59,7 +59,7 @@ public class JSONArrayType extends Type<JSONArray> {
     }
 
     @Override
-    boolean cancel() {
+    public boolean cancel() {
         if (mTask != null) {
             mTask.cancel(true);
             if (mTask.isCancelled()) {

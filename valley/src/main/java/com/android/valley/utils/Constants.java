@@ -6,8 +6,8 @@ package com.android.valley.utils;
 
 public class Constants {
 
-    static final int CONN_READ_TIMEOUT = 10000;
-    static final int CONN_TIMEOUT = 15000;
+    public static final int CONN_READ_TIMEOUT = 10000;
+    public static final int CONN_TIMEOUT = 15000;
 
     public final static String GET_METHOD = "GET";
     public final static String POST_METHOD = "POST";

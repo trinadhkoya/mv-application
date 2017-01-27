@@ -6,6 +6,7 @@ import com.android.valley.model.HeaderParameter;
 import com.android.valley.model.RequestParameter;
 import com.android.valley.model.Response;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -45,7 +46,12 @@ public class JSONObjectRequestTask extends BaseTask<String, Void, JSONObject> {
         Response response = null;
         try {
             response = executeRequest(mUrl, mMethod, mRequestParameters, mHeaderParameters);
-            JSONObject data = response.getStringFormat();
+            JSONObject data = null;
+            try {
+                data = new JSONObject(response.getStringFormat());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             if (this.mCacheManager != null) {
                 if (this.mCacheManager.getDataFromCache(mUrl) == null) {
                     this.mCacheManager.addDataToCache(mUrl, data);
